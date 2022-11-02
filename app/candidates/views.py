@@ -16,7 +16,7 @@ my_app_logger = logging.getLogger('my_app_logger')
 @candidates_blueprint.route('/candidates/')
 def page_candidates():
     candidates = candidates_dao.get_all()
-    # Устанавливаем логгер на вьюху
+    # Устанавливаем логгер
     my_app_logger.debug('Открытие страницы candidates_index.html')
     return render_template('candidates_index.html', candidates=candidates)
 
@@ -24,6 +24,6 @@ def page_candidates():
 @candidates_blueprint.route('/candidates/<int:pk>/')
 def page_candidate_all(pk):
     candidate = candidates_dao.get_by_pk(pk)
-    # Устанавливаем логгер на вьюху
+    # Устанавливаем логгер
     my_app_logger.debug(f'Открытие страницы candidates_single.html{pk}')
     return render_template('candidates_single.html', candidate=candidate)
